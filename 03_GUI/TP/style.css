@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #aaa;
+}
+
+.container {
+    background: gray;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 500px;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input, button, #output {
+    background: white;
+    color: black;
+    border: none;
+    padding: 1px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+input {
+    flex: 1;
+}
+
+#output {
+    width: 100%;
+}

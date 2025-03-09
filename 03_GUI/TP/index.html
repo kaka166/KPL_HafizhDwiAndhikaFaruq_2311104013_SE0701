@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Pendahuluan</title>
+    <link rel="stylesheet" href="/03_GUI/TP/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <input type="text" id="inputField" placeholder="INPUT">
+            <button onclick="displayOutput()">BUTTON</button>
+        </div>
+        <div id="output">OUTPUT</div>
+    </div>
+
+    <script>
+        function displayOutput() {
+            const inputValue = document.getElementById("inputField").value;
+            const outputText = inputValue ? `Halo ${inputValue}` : "OUTPUT";
+            document.getElementById("output").innerText = outputText;
+        }
+    </script>
+</body>
+</html>
