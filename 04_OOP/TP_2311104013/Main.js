@@ -1,7 +1,8 @@
-import KodePos from './KodePos.js';
+// import KodePos from './KodePos.js';
+
+// console.log(KodePos.getKodePos('Batununggal'))
+
+// /* ---------------------------------------------- */
 import DoorMachine from './DoorMachine.js';
-
-
-console.log(KodePos.getKodePos('Batununggal'))
 
 DoorMachine.ubahState("Terkunci")

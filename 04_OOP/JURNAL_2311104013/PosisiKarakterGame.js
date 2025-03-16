@@ -1,15 +1,14 @@
 class PosisiKarakterGame {
-    static state = "Berdiri"
-    static nim = 3
+    state = "Berdiri";
+    nim = 3;
+    transitions = {
+        "Berdiri": { "TombolS": "Jongkok", "TombolW": "Terbang" },
+        "Jongkok": { "TombolW": "Berdiri", "TombolS": "Tengkurap" },
+        "Tengkurap": { "TombolW": "Jongkok" },
+        "Terbang": { "TombolX": "Jongkok", "TombolS": "Berdiri" }
+    };
 
-    static transitions = {
-        "Berdiri" : {"TombolS" : "Jongkok", "TombolW" : "Terbang"},
-        "Jongkok" : {"TombolW" : "Berdiri", "TombolS" : "Tengkurap" },
-        "Tengkurap" : {"TombolW" : "Jongkok"},
-        "Terbang" : {"TombolX" : "Jongkok", "TombolS" : "Berdiri"}
-    }
-
-    static ubahState(tombol) {
+    ubahState(tombol) {
         let next = this.transitions[this.state] && this.transitions[this.state][tombol];
         if (!next) {
             console.log("Transisi tidak valid");
@@ -31,8 +30,8 @@ class PosisiKarakterGame {
             if (tombol == "Berdiri" && next == "Terbang") console.log("Posisi take off");
         }
 
-        this.state == next
-        console.log(this.state)
+        this.state = next;
+        console.log(this.state);
     }
 }
 

@@ -13,7 +13,7 @@ class KodeBuah {
         'Durian': 'L00',
         'Anggur': 'M00',
         'Melon' : 'N00',
-        'Semanggka' : 'O00'
+        'Semangka' : 'O00'
     };
 
     static getKodeBuah(buah) {

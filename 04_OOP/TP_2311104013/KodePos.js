@@ -1,8 +1,7 @@
 class KodePos {
     static dataKodePos = {
-        'Batununggal' : 402622,
         'Batununggal': 40266,
-        'A. Kujangsari': 40287,
+        'Kujangsari': 40287,
         'Mengger': 40267,
         'Wates': 40256,
         'Cijaura': 40287,

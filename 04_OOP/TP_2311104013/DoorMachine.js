@@ -1,5 +1,5 @@
 class DoorMachine {
-    static state = "Terkunci"
+    static state;
 
     static ubahState(newState) {
         this.state = newState
