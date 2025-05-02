@@ -1,0 +1,11 @@
+{
+   "firstName": "Hafizh",
+   "lastName": "Dwi Andhika Faruq",
+   "gender": "male",
+   "age": 19,
+   "address": {
+       "streetAddress": "Tanjunganom",
+       "city": "Banjarnegara",
+       "state": "Central Java"
+   }
+}
