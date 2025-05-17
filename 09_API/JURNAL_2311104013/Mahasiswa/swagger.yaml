@@ -1,0 +1,106 @@
+openapi: 3.0.0
+info:
+  title: 09_API
+  version: "1.0.0"
+  description: A simple API for managing mahasiswa
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+tags:
+  - name: mahasiswa
+    description: Manage the mahasiswa list
+
+paths:
+  /mahasiswa:
+    get:
+      tags:
+        - mahasiswa
+      summary: Get all mahasiswa
+      responses:
+        '200':
+          description: A list of mahasiswa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Mahasiswa'
+    post:
+      tags:
+        - mahasiswa
+      summary: Add a new mahasiswa
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mahasiswa'
+      responses:
+        '201':
+          description: Mahasiswa added successfully
+        '400':
+          description: Invalid input
+
+  /mahasiswa/{id}:
+    get:
+      tags:
+        - mahasiswa
+      summary: Get a mahasiswa by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Mahasiswa found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mahasiswa'
+        '404':
+          description: Mahasiswa not found
+
+    delete:
+      tags:
+        - mahasiswa
+      summary: Delete a mahasiswa by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Mahasiswa deleted
+        '404':
+          description: Mahasiswa not found
+
+components:
+  schemas:
+    Mahasiswa:
+      type: object
+      required:
+        - id
+        - name
+        - nim
+        - course
+        - year
+      properties:
+        id:
+          type: integer
+          example: 5
+        name:
+          type: string
+          example: Hafizh Dwi Andhika Faruq
+        course:
+          type: array
+          items:
+              type: string
+          example: [Konstruksi Perangkat Lunak, Basis Data]
+        year:
+          type: integer
+          example: 2023

@@ -1,0 +1,109 @@
+openapi: 3.0.0
+info:
+  title: 09_API
+  version: "1.0.0"
+  description: A simple API for managing movies
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+tags:
+  - name: movies
+    description: Manage the movie list
+
+paths:
+  /movies:
+    get:
+      tags:
+        - movies
+      summary: Get all movies
+      responses:
+        '200':
+          description: A list of movies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+    post:
+      tags:
+        - movies
+      summary: Add a new movie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Movie'
+      responses:
+        '201':
+          description: Movie added successfully
+        '400':
+          description: Invalid input
+
+  /movies/{id}:
+    get:
+      tags:
+        - movies
+      summary: Get a movie by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Movie found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+        '404':
+          description: Movie not found
+
+    delete:
+      tags:
+        - movies
+      summary: Delete a movie by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Movie deleted
+        '404':
+          description: Movie not found
+
+components:
+  schemas:
+    Movie:
+      type: object
+      required:
+        - id
+        - title
+        - director
+        - stars
+        - description
+      properties:
+        id:
+          type: integer
+          example: 3
+        title:
+          type: string
+          example: The Dark Knight
+        director:
+          type: string
+          example: Christopher Nolan
+        stars:
+          type: array
+          items:
+            type: string
+          example: ["Christian Bale", "Heath Ledger"]
+        description:
+          type: string
+          example: Batman sets out to dismantle the remaining criminal organizations that plague Gotham.

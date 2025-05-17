@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Mahasiswa API
+  version: 1.0.0
+paths:
+  /api/mahasiswa:
+    get:
+      summary: Get all mahasiswa
+      responses:
+        "200":
+          description: List of mahasiswa
+    post:
+      summary: Add new mahasiswa
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nama:
+                  type: string
+                nim:
+                  type: string
+      responses:
+        "201":
+          description: Mahasiswa added
+  /api/mahasiswa/{index}:
+    get:
+      summary: Get mahasiswa by index
+      parameters:
+        - in: path
+          name: index
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Mahasiswa found
+        "404":
+          description: Mahasiswa not found
+    delete:
+      summary: Delete mahasiswa by index
+      parameters:
+        - in: path
+          name: index
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Mahasiswa deleted
+        "404":
+          description: Mahasiswa not found
