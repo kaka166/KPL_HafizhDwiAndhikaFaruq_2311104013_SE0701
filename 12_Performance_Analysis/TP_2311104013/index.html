@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Deteksi Bilangan</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      input,
+      button {
+        padding: 3px;
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Deteksi Tanda Bilangan</h2>
+    <input type="number" id="inputBilangan" placeholder="Masukkan bilangan" />
+    <button id="cekButton">Cek Tanda</button>
+    <p>Hasil: <span id="outputLabel">-</span></p>
+
+    <script type="module" src="web.js"></script>
+    <script>
+      document.getElementById("cekButton").addEventListener("click", function () {
+        const input = parseInt(document.getElementById("inputBilangan").value);
+        const hasil = window.CariTandaBilangan(input);
+        document.getElementById("outputLabel").innerText = hasil;
+      });
+    </script>
+  </body>
+</html>
